@@ -10,6 +10,8 @@ import {
   CatalogImportPage,
   catalogImportPlugin,
 } from '@backstage/plugin-catalog-import';
+import { SignInPage } from '@backstage/core-components';
+import { oneloginAuthApiRef } from '@backstage/core-plugin-api';
 import { ScaffolderPage, scaffolderPlugin } from '@backstage/plugin-scaffolder';
 import { orgPlugin } from '@backstage/plugin-org';
 import { SearchPage } from '@backstage/plugin-search';
@@ -36,6 +38,19 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 
 const app = createApp({
   apis,
+  components: {
+    SignInPage: props => (
+      <SignInPage
+        {...props}
+        auto
+        provider={{
+          id: 'onelogin-auth-provider',
+          title: 'onelogin',
+          message: 'Sign in using onelogin',
+          apiRef: oneloginAuthApiRef,
+        }} />
+    ),
+  },
   bindRoutes({ bind }) {
     bind(catalogPlugin.externalRoutes, {
       createComponent: scaffolderPlugin.routes.root,
