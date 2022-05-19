@@ -11,7 +11,6 @@ import {
   catalogImportPlugin,
 } from '@backstage/plugin-catalog-import';
 import { SignInPage } from '@backstage/core-components';
-import { oneloginAuthApiRef } from '@backstage/core-plugin-api';
 import { ScaffolderPage, scaffolderPlugin } from '@backstage/plugin-scaffolder';
 import { orgPlugin } from '@backstage/plugin-org';
 import { SearchPage } from '@backstage/plugin-search';
@@ -24,7 +23,7 @@ import {
 import { TechDocsAddons } from '@backstage/plugin-techdocs-react';
 import { ReportIssue } from '@backstage/plugin-techdocs-module-addons-contrib';
 import { UserSettingsPage } from '@backstage/plugin-user-settings';
-import { apis } from './apis';
+import { apis, auth0ApiRef } from './apis';
 import { entityPage } from './components/catalog/EntityPage';
 import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
@@ -44,10 +43,10 @@ const app = createApp({
         {...props}
         auto
         provider={{
-          id: 'onelogin-auth-provider',
-          title: 'onelogin',
-          message: 'Sign in using onelogin',
-          apiRef: oneloginAuthApiRef,
+          id: 'auth0-auth-provider',
+          title: 'Auth0',
+          message: 'Sign in using Auth0',
+          apiRef: auth0ApiRef,
         }} />
     ),
   },

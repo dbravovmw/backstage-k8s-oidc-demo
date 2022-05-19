@@ -62,11 +62,11 @@ catalog:
 auth:
   environment: development
   providers:
-    onelogin:
+    auth0:
       development:
-        clientId: ${AUTH_ONELOGIN_CLIENT_ID}
-        clientSecret: ${AUTH_ONELOGIN_CLIENT_SECRET}
-        issuer: https://${AUTH_ONELOGIN_DOMAIN}.onelogin.com/oidc/2
+        clientId: ${AUTH0_CLIENT_ID}
+        clientSecret: ${AUTH0_CLIENT_SECRET}
+        domain: ${AUTH0_DOMAIN}
 kubernetes:
   serviceLocatorMethod:
     type: 'multiTenant'

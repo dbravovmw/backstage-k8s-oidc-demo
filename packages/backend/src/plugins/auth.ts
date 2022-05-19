@@ -18,7 +18,7 @@ export default async function createPlugin(
     tokenManager: env.tokenManager,
     providerFactories: {
       ...defaultAuthProviderFactories,
-      onelogin: providers.onelogin.create({
+      auth0: providers.auth0.create({
         signIn: {
           resolver: async ({ profile }, ctx) => {
             if (!profile.email) {
