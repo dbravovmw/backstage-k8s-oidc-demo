@@ -76,6 +76,6 @@ kubernetes:
         - name: oidc-cluster
           url: ${AUTH0_KUBERNETES_URL}
           authProvider: oidc
-          oidcTokenProvider: onelogin
+          oidcTokenProvider: auth0
           skipTLSVerify: true
           skipMetricsLookup: true
