@@ -64,9 +64,9 @@ auth:
   providers:
     onelogin:
       development:
-        clientId: ${AUTH_ONELOGIN_CLIENT_ID}
-        clientSecret: ${AUTH_ONELOGIN_CLIENT_SECRET}
-        issuer: https://${AUTH_ONELOGIN_DOMAIN}.onelogin.com/oidc/2
+        clientId: ${ONELOGIN_CLIENT_ID}
+        clientSecret: ${ONELOGIN_CLIENT_SECRET}
+        issuer: https://${ONELOGIN_DOMAIN}.onelogin.com/oidc/2
 kubernetes:
   serviceLocatorMethod:
     type: 'multiTenant'
@@ -74,7 +74,7 @@ kubernetes:
     - type: 'config'
       clusters:
         - name: oidc-cluster
-          url: ${KUBERNETES_API_URL}
+          url: ${ONELOGIN_KUBERNETES_URL}
           authProvider: oidc
           oidcTokenProvider: onelogin
           skipTLSVerify: true
