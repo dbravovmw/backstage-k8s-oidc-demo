@@ -43,12 +43,12 @@ const app = createApp({
       <SignInPage
         {...props}
         auto
-        provider={{
+        providers={['guest', {
           id: 'onelogin-auth-provider',
           title: 'onelogin',
           message: 'Sign in using onelogin',
           apiRef: oneloginAuthApiRef,
-        }} />
+        }]} />
     ),
   },
   bindRoutes({ bind }) {
